@@ -1,2 +1,2 @@
-executor:dummy
+executor:server.PoolThreadTaskExecutor
 encoder:encoder.ReverseEncoder

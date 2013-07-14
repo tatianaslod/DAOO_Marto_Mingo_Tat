@@ -1,22 +1,22 @@
 package encoder;
 
-import junit.framework.TestCase;
+import com.sun.istack.internal.NotNull;
+import executor.ioc.MsgEncoderTest;
+import org.junit.runners.Parameterized;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tatiana
- * Date: 17/05/13
- * Time: 17:57
- * To change this template use File | Settings | File Templates.
- */
-public class ReverseEncoderTest extends TestCase {
+import java.util.Arrays;
+import java.util.Collection;
 
-    public void testEncodeDecode() {
-        final ReverseEncoder encoder = new ReverseEncoder();
-
-        final String decode = encoder.decode("some".getBytes());
-        final byte[] encode = encoder.encode("some");
-
-        assertEquals("Encode - Decode Test Pass", decode, new String(encode));
+public class ReverseEncoderTest extends MsgEncoderTest {
+    public ReverseEncoderTest(@NotNull java.lang.String message, @NotNull byte[] encodedMessage) {
+        super(new ReverseEncoder(), message, encodedMessage);
     }
+
+    @Parameterized.Parameters
+    public static Collection messages() {
+        return Arrays.asList(new Object[][]{
+                {"mensaje", "ejasnem".getBytes()},
+        });
+    }
+
 }

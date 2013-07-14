@@ -1,4 +1,4 @@
-package daoo.ioc;
+package ioc;
 
 import java.io.*;
 import java.net.Socket;

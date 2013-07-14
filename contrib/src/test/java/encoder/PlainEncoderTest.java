@@ -1,22 +1,20 @@
 package encoder;
 
-import junit.framework.TestCase;
+import com.sun.istack.internal.NotNull;
+import executor.ioc.MsgEncoderTest;
+import org.junit.runners.Parameterized;
+import java.util.Arrays;
+import java.util.Collection;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tatiana
- * Date: 17/05/13
- * Time: 17:57
- * To change this template use File | Settings | File Templates.
- */
-public class PlainEncoderTest extends TestCase {
+public class PlainEncoderTest extends MsgEncoderTest {
+    public PlainEncoderTest(@NotNull java.lang.String message, @NotNull byte[] encodedMessage) {
+        super(new PlainEncoder(), message, encodedMessage);
+    }
 
-    public void testEncodeDecode() {
-        final PlainEncoder encoder = new PlainEncoder();
-
-        final String decode = encoder.decode("some".getBytes());
-        final byte[] encode = encoder.encode("some");
-
-        assertEquals("Encode - Decode Test Pass", decode, new String(encode));
+    @Parameterized.Parameters
+    public static Collection messages() {
+        return Arrays.asList(new Object[][]{
+                {"mensaje", "mensaje".getBytes()},
+        });
     }
 }

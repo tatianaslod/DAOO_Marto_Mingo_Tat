@@ -1,7 +1,7 @@
 package server;
 
-import daoo.ioc.MsgEncoder;
-import daoo.ioc.Task;
+import ioc.MsgEncoder;
+import ioc.Task;
 
 import java.io.*;
 import java.net.Socket;

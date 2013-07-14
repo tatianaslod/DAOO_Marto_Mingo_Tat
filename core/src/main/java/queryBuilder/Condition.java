@@ -22,7 +22,6 @@ public abstract class Condition extends Statement<Boolean>{
         return new UnitaryCondition(Operator.NOT, this);
     }
 
-
     public abstract Operator getOperator();
 
     public abstract boolean isEmpty();

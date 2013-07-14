@@ -1,4 +1,4 @@
-package daoo.ioc;
+package ioc;
 
 /**
  * Created with IntelliJ IDEA.

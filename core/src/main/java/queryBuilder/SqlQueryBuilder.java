@@ -11,12 +11,18 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 public class SqlQueryBuilder {
-    @NotNull private List<Column> selectColumns;
-    @NotNull private List<Table> fromTables;
-    @NotNull private Condition whereClause;
-    @NotNull private List<Column> orderByColumns;
-    @NotNull private List<Column> groupByColumns;
-    @NotNull private int limit;
+    @NotNull
+    private List<Column> selectColumns;
+    @NotNull
+    private List<Table> fromTables;
+    @NotNull
+    private Condition whereClause;
+    @NotNull
+    private List<Column> orderByColumns;
+    @NotNull
+    private List<Column> groupByColumns;
+    @NotNull
+    private int limit;
 
     private SqlQueryBuilder() {
         orderByColumns = Collections.emptyList();
@@ -81,18 +87,20 @@ public class SqlQueryBuilder {
         //Check that the all the columns in the SELECT statement are in the tables of FROM statement
         for (Column selectColumn : selectColumns) {
             if (!isColumnInFromTables(selectColumn)) {
-                errorMsgList.add("SELECT ERROR: Missing " + selectColumn.getName() + " column in FROM statement tables");
+                errorMsgList.add("SELECT ERROR: Missing " + selectColumn.getName()
+                        + " column in FROM statement tables");
             }
         }
 
         //Check that the all the columns in the GROUP BY statement are in the tables of FROM statement
         for (Column groupByColumn : groupByColumns) {
             if (!isColumnInFromTables(groupByColumn)) {
-                errorMsgList.add("GROUP BY ERROR: Missing " + groupByColumn.getName() + " column in FROM statement tables");
+                errorMsgList.add("GROUP BY ERROR: Missing " + groupByColumn.getName()
+                        + " column in FROM statement tables");
             }
         }
-        //todo> where clause validation
-        return  new SqlQuery(selectColumns, fromTables, whereClause, orderByColumns, groupByColumns, limit, errorMsgList);
+        //To be implemented: where clause validation
+        return new SqlQuery(selectColumns, fromTables, whereClause, orderByColumns, groupByColumns, limit, errorMsgList);
     }
 
     private boolean isColumnInFromTables(Column column) {

@@ -1,10 +1,10 @@
 package server;
 
 import com.sun.istack.internal.NotNull;
-import daoo.ioc.MsgEncoder;
-import daoo.ioc.Task;
-import daoo.ioc.TaskExecutor;
-import daoo.ioc.TaskServer;
+import ioc.MsgEncoder;
+import ioc.Task;
+import ioc.TaskExecutor;
+import ioc.TaskServer;
 
 import java.net.ServerSocket;
 import java.net.Socket;

@@ -1,6 +1,6 @@
 package encoder;
 
-import daoo.ioc.MsgEncoder;
+import ioc.MsgEncoder;
 
 /**
  * Created with IntelliJ IDEA.

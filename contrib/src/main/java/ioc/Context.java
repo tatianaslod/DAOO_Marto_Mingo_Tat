@@ -1,8 +1,5 @@
 package ioc;
 
-import daoo.ioc.MsgEncoder;
-import daoo.ioc.TaskExecutor;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -25,6 +22,14 @@ public class Context {
         }
     }
 
+    public void setEncoder(MsgEncoder encoder) {
+        this.encoder = encoder;
+    }
+
+    public void setExecutor(TaskExecutor executor) {
+        this.executor = executor;
+    }
+
     private void loadConfiguration(String configurationPath, Map<String, String> implementations) {
         final FileReader fr;
         try {
@@ -42,9 +47,9 @@ public class Context {
     }
 
     private TaskExecutor loadTaskExecutor(String executorName) throws Exception {
-        if (executorName.equals("dummy")) {
-            return MockProvider.getExecutor();
-        }
+//        if (executorName.equals("dummy")) {
+//            return MockFactory.getExecutor();
+//        }
 
         final ServiceLoader<TaskExecutor> loader = ServiceLoader.load(TaskExecutor.class);
         for (TaskExecutor taskExecutor : loader) {
@@ -56,9 +61,9 @@ public class Context {
     }
 
     private MsgEncoder loadMsgEncoder(String encoderName) throws Exception {
-        if (encoderName.equals("dummy")) {
-            return MockProvider.getMsgEncoder();
-        }
+//        if (encoderName.equals("dummy")) {
+//            return MockFactory.getMsgEncoder();
+//        }
 
         final ServiceLoader<MsgEncoder> loader = ServiceLoader.load(MsgEncoder.class);
         for (MsgEncoder msgEncoder : loader) {

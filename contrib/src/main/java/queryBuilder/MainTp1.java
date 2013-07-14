@@ -12,12 +12,13 @@ public class MainTp1 {
     public static void main(String[] args) throws Exception {
         //Example
         final Table t = table("student");
+        final Table t1 = table("student2");
         final StrColumn lastName = t.str("lastName");
         final IntColumn age = t.number("age");
 
         final SqlQuery query = SqlQueryBuilder.sqlQuery()
                 .select(age, lastName)
-                .from(t)
+                .from(t1)
                 .where(lastName.startsWith(cons("Lopez"))
                         .and(age.between(cons(18), cons(21)))
                         .and(age.lessThan(cons(18)).not()))

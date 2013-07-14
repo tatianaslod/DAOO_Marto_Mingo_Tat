@@ -1,4 +1,4 @@
-package daoo.ioc;
+package ioc;
 
 import com.sun.istack.internal.NotNull;
 

@@ -1,19 +1,16 @@
-package ioc;
+package executor;
 
-import daoo.ioc.MsgEncoder;
-import daoo.ioc.Task;
-import daoo.ioc.TaskExecutor;
-import org.mockito.Matchers;
-import server.NewThreadTaskExecutor;
+import ioc.DummyExecutor;
+import ioc.MsgEncoder;
+import ioc.TaskExecutor;
 
 import static org.mockito.Matchers.anyByte;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class MockProvider {
+public class MockFactory {
 
     public static MsgEncoder getMsgEncoder() {
         MsgEncoder encoder = mock(MsgEncoder.class);

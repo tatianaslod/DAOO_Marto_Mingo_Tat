@@ -1,8 +1,8 @@
 package server;
 
 import com.sun.istack.internal.NotNull;
-import daoo.ioc.Task;
-import daoo.ioc.TaskExecutor;
+import ioc.Task;
+import ioc.TaskExecutor;
 
 import java.util.LinkedList;
 
